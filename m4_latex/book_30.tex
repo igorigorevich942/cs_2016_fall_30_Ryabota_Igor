@@ -1,0 +1,222 @@
+\documentclass[fleqn]{book}
+
+%% Language and font encodings 
+\usepackage[english]{babel} 
+\usepackage[utf8x]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage{fancyhdr} 
+%% Sets page size and margins 
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=2cm,marginparwidth=1cm]{geometry} 
+\usepackage{xcolor} 
+%% Useful packages 
+\usepackage{amsmath} 
+\usepackage{graphicx} 
+\usepackage[colorinlistoftodos]{todonotes} 
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} 
+\usepackage{setspace} 
+\setcounter{chapter}{6}
+\setcounter{section}{4}
+\setlength{\headheight}{14pt}
+\newcounter{pro1}
+\setcounter{pro1}{18}
+\newcommand{\pro}{\par\addtocounter{pro1}{1}
+\textbf{Problem \arabic{chapter}.\arabic{pro1} }\quad}
+\setcounter{equation}{17}
+\definecolor{light-gray}{rgb}{0.8,0.8,0.8}
+\begin{document} 
+\pagestyle{fancy} 
+\parindent=0cm
+
+% этим мы убеждаемся, что заголовки глав и 
+% разделов используют нижний регистр. 
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} % убираем текущие установки для колонтитулов 
+
+
+\fancyhead[RO]{\large \textsl {\textbf{113}}} 
+\fancyhead[LO]{\large \textsl{6.4 Tangent roots: A daunting transcendental sum}} 
+\Large \textrm{The integral, from the
+1/D
+operator, contributes the  area  under  the ln k curve.   The  correction,
+from the 1/2 operator, incorporates the triangular
+protrusions (Problem 6.20).  The ellipsis includes
+the higher-order corrections (Problem 6.21)—hard
+to evaluate using pictures (Problem 4.32) but sim-
+ple using Euler–MacLaurin summation (Problem 6.21).} 
+
+
+\colorbox{light-gray}{
+\begin{minipage}{\textwidth}
+\large\textrm{\textbf { \pro Integer sums} \\  
+Use Euler–MacLaurin summation to find closed forms for the following sums:} \\
+\large\textrm{(a) $\sum\limits_{0}^n k^{2}$ (b) $\sum\limits_{0}^n (2k+1)$ (c) $\sum\limits_{0}^n k^{3}.$}
+\large\textrm{\textbf{\pro Boundary cases} \\  
+In Euler–MacLaurin summation, the constant term is [f(b)+f(a)]/2—one-half of the first term plus one-half of the last term.  The picture for summing ln k (Section 4.5) showed that the protrusions are approximately one-half of the last term, namely ln n.  What, pictorially, happened to one-half of the first term?} \\ 
+\\ 
+\large\textrm{\textbf{\pro Higher-order terms} \\ 
+\\ 
+Approximate ln 5! using Euler–MacLaurin summation.} 
+\\ 
+\large\textrm{\textbf{\pro Basel sum} \\ 
+\\ 
+The Basel sum $\sum\limits_{1}^{∞} n^{-2}$ may be approximated with pictures (Problem 4.37).} 
+\\ 
+\large\textrm{However,  the  approximation  is  too  crude  to  help  guess  the  closed  form.   As
+Euler did, use Euler–MacLaurin summation to improve the accuracy until you
+can confidently guess the closed form. Hint: Sum the first few terms explicitly.} \\
+\end{minipage}}
+ \section{ \textbf{ Tangent roots: A daunting transcendental sum}}
+ \large\textrm {Our farewell example, chosen because its analysis combines diverse street-
+fighting tools, is a difficult infinite sum.} \\ 
+\large\textrm {Find $S\equiv\sum x_{n}^{-2}$ where the $x_{n}$ are the positive solutions of tan x=x.} \\ 
+\Large \textrm{The solutions to tan x=x or, equivalently, the roots of tan x−x, are transcendental and have no closed form, yet a closed form is required for
+almost every summation method.  Street-fighting methods will come to our rescue.} \\ 
+\\
+%****************************************************************************************** 
+%****************************************************************************************** 
+\newpage 
+\pagestyle{fancy} 
+% этим мы убеждаемся, что заголовки глав и 
+% разделов используют нижний регистр. 
+\renewcommand{\headrulewidth}{0pt} 
+\fancyhf{} % убираем текущие установки для колонтитулов 
+
+\fancyhead[LE]{\large \textsl {\textbf{114}}} 
+\fancyhead[RE]{\large \textsl{6 Analogy}} 
+ \textbf{6.4.1 Pictures and easy cases}
+
+\Large\textrm{Begin the analysis with a hopefully easy case.}\\ 
+\textsl{What is the first root x1?}\\
+\Large\textrm{The roots of tan x−x are given by the intersections  of y=x and y=tan x.Surprisingly, no intersection occurs in the branch of tan x where $0 < x < \pi/2$ (Problem 6.23); the first intersection is just before the asymptote at $x=3\pi/2$. Thus, $x_{1}\approx3\pi/2$}\\
+\colorbox{light-gray}
+{
+\begin{minipage}{\textwidth}
+\large\textrm{ \textbf{ \textbf\pro No intersection with the main branch}\\ 
+Show symbolically that tan x=x has no solution for $0 < x < \pi/2$. (The result looks plausible pictorially but is worth checking in order to draw the picture.)}\\ 
+\end{minipage}
+}
+\textsl{Where, approximately, are the subsequent intersections?}\\
+\Large\textrm{As x grows,  the y=x line  intersects  the y=tan x graph  ever  higher and therefore ever closer to the vertical asymptotes.  Therefore, make the
+following asymptote approximation for the big part of $x_{n}$:}\\ 
+\begin{equation}
+x_{n}\approx (n+\frac{1}{2})\pi.
+\end{equation}
+\textbf{6.4.2  Taking out the big part}
+ 
+\Large\textrm{This approximate, low-entropy expression for $x_{n}$ gives the big part of S (the zeroth approximation).}
+
+\begin{equation}
+S\approx \sum[\underbrace{(n+\frac{1}{2})\pi}_{\approx x_{n}}]^{-2}=\frac{4}{\pi^{2}} \sum_{1}^∞ \frac{1}{(2n+1)^2}.
+\end{equation}
+\Large\textrm{The sum $\sum_{1}^∞ (2n+1)^{-2}$ is,  from  a  picture  (Section  4.5)  or  from  Euler–
+MacLaurin summation (Section 6.3.2), roughly the following integral.}\\ 
+
+\begin{equation}
+\sum\limits_{1}^∞ (2n+1)^{-2}\approx\int_{1}^{∞}(2n+1)^{-2}dn=-\frac{1}{2}×\frac{1}{2n+1}\bigg|_1^∞=\frac{1}{6}.
+\end{equation}
+%************************************************************************************* 
+%*********************************************************************************** 
+\newpage 
+\pagestyle{fancy} 
+% этим мы убеждаемся, что заголовки глав и 
+% разделов используют нижний регистр. 
+\renewcommand{\headrulewidth}{0pt} 
+\fancyhf{} % убираем текущие установки для колонтитулов 
+
+\fancyhead[RO]{\large \textsl {\textbf{115}}} 
+\fancyhead[LO]{\large \textsl{6.4  Tangent roots:  A daunting transcendental sum}} 
+\Large\textrm{Therefore,} 
+\begin{equation}
+s\approx \frac{4}{\pi^2} × \frac{1}{6}=0.067547...
+\end{equation}
+\Large\textrm{The shaded protrusions are roughly triangles,
+and they sum to one-half of the first rectangle.
+That rectangle has area 1/9 ,so}
+\begin{equation}
+\sum\limits_{1}^∞ (2n+1)^{-2}\approx\frac{1}{6}+\frac{1}{2}×\frac{1}{9}=\frac{2}{9}.
+\end{equation}
+\Large\textrm{Therefore, a more accurate estimate of S is} 
+\begin{equation}
+S\approx\frac{4}{\pi^{2}}×\frac{2}{9}=0.090063...,
+\end{equation}
+\Large\textrm{which is slightly higher than the first estimate.} 
+
+\textsl{Is the new approximation an overestimate or an underestimate?}  
+
+\Large\textrm{The new approximation is based on two underestimates.  First, the asymp-
+tote approximation $x_{n} \approx(n+0.5)\pi$ overestimates each $x_{n}$ and therefore
+underestimates the squared reciprocals in the sum $\sum{x_{n}^{-2}}$. Second, after
+making the asymptote approximation, the pictorial approximation to the
+sum $\sum_{1}^∞ (2n+1)^{-2}$ replaces each protrusion with an inscribed triangle
+and thereby underestimates each protrusion (Problem 6.24).}
+
+\colorbox{light-gray}
+{
+\begin{minipage}{\textwidth}
+\large\textrm{ \textbf{ \textbf\pro Picture for the second underestimate}\\ 
+Draw a picture of the underestimate in the pictorial approximation}\\ 
+\begin{equation}
+\sum\limits_{1}^∞ (2n+1)^{-2}\approx\frac{1}{6}+\frac{1}{2}×\frac{1}{9}.
+\end{equation}
+\end{minipage}
+}
+
+\textsl{How can these two underestimates be remedied?}
+
+\Large\textrm{The second underestimate (the protrusions) is eliminated by summing $\sum_{1}^∞ (2n+1)^{-2}$ exactly.  The sum is unfamiliar partly because its first term is the fraction 1/9 — whose arbitrariness increases the entropy of the sum. Including the n=0 term, which is 1, and the even squared reciprocals 1 /$(2n)^2$ produces a compact and familiar lower-entropy sum.}
+\begin{equation}
+\sum\limits_{1}^∞ (2n+1)^{2}+1+\sum\limits_{1}^∞ \frac{1}{(2n)^{2}}=\sum\limits_{1}^∞ \frac{1}{n^{2}}.
+\end{equation}
+%************************************************************************************* 
+%*********************************************************************************** 
+\newpage 
+\pagestyle{fancy} 
+% этим мы убеждаемся, что заголовки глав и 
+% разделов используют нижний регистр. 
+\renewcommand{\headrulewidth}{0pt} 
+\fancyhf{} % убираем текущие установки для колонтитулов 
+
+\fancyhead[LE]{\large \textsl {\textbf{116}}} 
+\fancyhead[RE]{\large \textsl{6 Analogy}} 
+\Large\textrm{The final, low-entropy sum is the famous Basel sum (high-entropy results are not often famous).  Its value is $B = \pi^{2}/6$ (Problem 6.22).} 
+
+\textsl{How does knowing $B = \pi^{2}/6$ help evaluate the original sum $\sum_{1}^∞ (2n+1)^{-2}$?} \\ 
+\Large\textrm{The major modification from the original sum was to include the even
+squared reciprocals.  Their sum is B/4.}
+\begin{equation}
+\sum_{1}^∞ \frac{1}{(2n)^2} = \frac{1}{4}\sum_{1}^∞ \frac{1}{n^2}.
+\end{equation}
+The second modification was to include the n=0 term. Thus, to obtain, $\sum_{1}^∞ (2n+1)^{-2}$ adjust the Basel value B by subtracting B/4 and then the n=0 term.  The result, after substituting $B=\pi^2/6$ ,is
+\begin{equation}
+\sum_{1}^∞ \frac{1}{(2n+1)^2} = B− \frac {1}{4}B−1= \frac{\pi^2}{8}−1.
+\end{equation}
+\Large\textrm{This exact sum, based on the asymptote approximation for $x_{n}$, produces the following estimate of S.} \\ 
+\begin{equation}
+S\approx \frac{4}{\pi^2} \sum_{1}^∞ \frac{1}{(2n+1)^2} = \frac{4}{\pi^2}(\frac{\pi^2}{8}−1).
+\end{equation}
+\Large\textrm{Simplifying by expanding the product gives}
+\begin{equation}
+S\approx \frac{1}{2}-\frac{4}{\pi^2}=0.094715..
+\end{equation}
+\\
+\colorbox{light-gray}
+{
+\begin{minipage}{\textwidth}
+\large\textrm{ \textbf{ \textbf\pro Check the earlier reasoning}\\ 
+Check  the  earlier  pictorial  reasoning  (Problem  6.24)  that 1/6+1/18=2/9 underestimates $\sum_{1}^∞ (2n+1)^{-2}$ . How accurate was that estimate?}\\ 
+\end{minipage}
+}
+\Large\textrm{This  estimate  of S is  the  third  that  uses  the  asymptote  approximation $x_{n}\approx(n+0.5)\pi$}. Assembled together, the estimates are
+\[
+ S\approx \left\{
+ \begin{matrix} 
+   0.067547 & (\textrm{integral  approximation  to } \sum_{1}^∞ (2n+1)^{-2}),
+ \quad  &\\ 0.090063 & (\textrm {integral approximation and triangular overshoots}),
+ 
+ \quad  &\\ 0.090063 & (\textrm {exact sum of} \sum_{1}^∞ (2n+1)^{-2}) .& 
+ \end{matrix}
+ \right. 
+\]
+\Large\textrm{Because the third estimate incorporated the exact value of $\sum\limits_{1}^∞ (2n+1)^{-2}$, any remaining error in the estimate of S must belong to the asymptote
+approximation itself.} \\
+\end{document}
